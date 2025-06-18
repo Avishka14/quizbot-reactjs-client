@@ -3,6 +3,7 @@ import "./Style.css";
 function HomePage() {
   return (
     <div className="main-container-home">
+  
       <div className="home-header">
         <header>
           <h2>QuizBot</h2>
@@ -23,16 +24,19 @@ function HomePage() {
             Whether you're a trivia master or just starting your learning
             journey, QuizBot adapts to your level and helps you grow.
           </p>
-          <h2>Join thousands of users who are already expanding their knowledge and having fun while doing it!</h2>
+          <h2>
+            Join thousands of users who are already expanding their knowledge
+            and having fun while doing it!
+          </h2>
         </div>
 
         <div className="home-button">
-            <button> Get Started 🚀 </button>
-            <button>About Us</button>
+          <button> Get Started 🚀 </button>
+          <button>About App</button>
         </div>
 
         <div className="home-footer">
-             <p>Developed by Avishka Chamod</p>
+          <p>Developed by Avishka Chamod</p>
         </div>
       </div>
     </div>
