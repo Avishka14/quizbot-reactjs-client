@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.home-header {
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home-header::before {
+  content: "🤖";
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+/* Main Content */
+.home-body-section {
+  flex-grow: 1;
+  padding: 2rem 1rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.body-heading h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.body-heading h2 {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Details box */
+.body-details {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.body-details h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.body-details p,
+.body-details h2 {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+}
+
+/* Buttons container */
+.home-button {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.home-button button {
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  min-width: 160px;
+  transition: 
+    background-color 0.3s ease, 
+    transform 0.3s ease, 
+    box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  outline-offset: 4px;
+}
+
+.home-button button {
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.home-button button:first-child {
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.home-button button:first-child:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+}
+
+.home-button button:last-child {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+.home-button button:last-child:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.2);
+}
+
+/* Button hover shine effect */
+.home-button button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.home-button button:hover::before {
+  left: 100%;
+}
+
+/* Footer */
+.home-footer {
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home-header {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+  
+  .body-heading h1 {
+    font-size: 2rem;
+  }
+  
+  .body-details {
+    padding: 1.5rem;
+  }
+  
+  .home-button {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .home-button button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-body-section {
+    padding: 1rem 0.5rem;
+  }
+  
+  .body-heading h1 {
+    font-size: 1.8rem;
+  }
+  
+  .home-button button {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+}
