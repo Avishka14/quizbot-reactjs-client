@@ -18,7 +18,10 @@ function Header() {
           <span>History</span>
         </Link>
 
-        <a href="#">Blog</a>
+       <Link to="/blog" >
+        <span>Blog</span>
+       </Link>
+
         <a href="#">About</a>
         <a href="#">Account</a>
       </div>

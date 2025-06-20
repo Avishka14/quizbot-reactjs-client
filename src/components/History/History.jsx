@@ -218,7 +218,7 @@ function History() {
                 Start New Quiz
               </button>
               <button className="history-button">
-                Export 
+                Export Data
               </button>
             </div>
           </div>
