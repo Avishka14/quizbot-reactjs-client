@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
-    <div className="main-container-landing">
+    <div className="landing-page">
       <div className="heading-con">
         <h2>QuizBot</h2>
       </div>

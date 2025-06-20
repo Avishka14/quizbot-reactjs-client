@@ -22,8 +22,13 @@ function Header() {
         <span>Blog</span>
        </Link>
 
-        <a href="#">About</a>
-        <a href="#">Account</a>
+        <Link to="/about">
+        <span>About</span>
+       </Link>
+
+       <Link to="/account" >
+        <span>Account</span>
+       </Link>
       </div>
     </div>
   );

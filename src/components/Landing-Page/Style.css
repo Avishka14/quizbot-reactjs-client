@@ -1,11 +1,4 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;600;800&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   font-family: 'Lexend Deca', sans-serif;
@@ -13,18 +6,22 @@ body {
   color: #222;
   line-height: 1.6;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.main-container-landing {
+.landing-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem 1rem;
   min-height: 100vh;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
-.heading-con {
+.landing-page .heading-con {
   align-self: flex-start;
   padding: 1rem 2rem;
   font-size: 1.5rem;
@@ -32,25 +29,25 @@ body {
   color: #3a0ca3;
 }
 
-.section-one-land {
+.landing-page .section-one-land {
   text-align: center;
   margin-top: 2rem;
 }
 
-.section-one-land h1 {
+.landing-page .section-one-land h1 {
   font-size: 2.5rem;
   color: #2b5876;
   margin-bottom: 0.5rem;
   font-weight: 700;
 }
 
-.section-one-land h2 {
+.landing-page .section-one-land h2 {
   font-size: 1.4rem;
   color: #374785;
   font-weight: 500;
 }
 
-.section-two-land {
+.landing-page .section-two-land {
   max-width: 800px;
   text-align: center;
   margin: 2rem 0;
@@ -60,20 +57,20 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-.section-two-land h2 {
+.landing-page .section-two-land h2 {
   font-size: 1.75rem;
   color: #3a0ca3;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
-.section-two-land p {
+.landing-page .section-two-land p {
   font-size: 1rem;
   color: #444;
   margin: 0.75rem 0;
 }
 
-.section-three-land {
+.landing-page .section-three-land {
   margin: 2rem 0;
   display: flex;
   gap: 1rem;
@@ -81,7 +78,7 @@ body {
   justify-content: center;
 }
 
-.section-three-land button {
+.landing-page .section-three-land button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   border: none;
@@ -94,53 +91,53 @@ body {
   box-shadow: 0 4px 14px rgba(58, 12, 163, 0.2);
 }
 
-.section-three-land button:hover {
+.landing-page .section-three-land button:hover {
   background-color: #5f27cd;
   transform: translateY(-2px);
 }
 
-.section-four-land {
+.landing-page .section-four-land {
   text-align: center;
   padding: 1.5rem 0 0.5rem;
 }
 
-.section-four-land h2 {
+.landing-page .section-four-land h2 {
   font-size: 0.95rem;
   color: #555;
   margin-bottom: 0.5rem;
   font-weight: 400;
 }
 
-.section-four-land a {
+.landing-page .section-four-land a {
   margin: 0 0.5rem;
   color: #3a0ca3;
   font-size: 1.5rem;
   transition: color 0.3s ease;
 }
 
-.section-four-land a:hover {
+.landing-page .section-four-land a:hover {
   color: #5f27cd;
 }
 
 @media (max-width: 600px) {
-  .section-one-land h1 {
+  .landing-page .section-one-land h1 {
     font-size: 2rem;
   }
 
-  .section-one-land h2 {
+  .landing-page .section-one-land h2 {
     font-size: 1.2rem;
   }
 
-  .section-two-land {
+  .landing-page .section-two-land {
     padding: 1rem;
   }
 
-  .section-three-land {
+  .landing-page .section-three-land {
     flex-direction: column;
     align-items: center;
   }
 
-  .section-three-land button {
+  .landing-page .section-three-land button {
     width: 90%;
   }
 }

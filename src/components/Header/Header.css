@@ -1,4 +1,5 @@
-/* header.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap');
 
 .header-container {
   width: 100%;
@@ -13,7 +14,6 @@
   z-index: 1000;
 }
 
-/* Logo aligned to left */
 .header-logo h2 {
   font-size: 1.8rem;
   font-weight: 800;
@@ -22,7 +22,6 @@
   margin-right: 2rem;
 }
 
-/* Nav aligned next to logo */
 .nav-link {
   display: flex;
   gap: 1.5rem;
@@ -31,7 +30,6 @@
   align-items: center;
 }
 
-/* Link styles */
 .nav-link a {
   text-decoration: none;
   color: #333;
@@ -62,7 +60,6 @@
   width: 100%;
 }
 
-/* Responsive layout */
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;

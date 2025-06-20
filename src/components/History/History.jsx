@@ -6,7 +6,7 @@ function History() {
     <>
       <Header />
 
-      <div className="history-container">
+      <div className="history-page">
         <header className="history-header">
           <div className="history-header-content">
             <h1 className="history-title">Quiz History Dashboard</h1>

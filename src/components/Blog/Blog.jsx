@@ -6,7 +6,7 @@ function Blog() {
   return (
     <>
       <Header />
-      <div className="blog-wrapper">
+      <div className="blog-page">
         {/* === USER PROFILE & STATS SECTION === */}
         <section className="user-stats-section">
           <div className="blog-container user-stats-container">
