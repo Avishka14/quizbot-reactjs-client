@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../Header/Header";
 import './HistoryStyle.css';
+import Footer from "../Footer/Footer";
 function History() {
   return (
     <>
@@ -223,7 +224,10 @@ function History() {
             </div>
           </div>
         </footer>
+        
+         <Footer/>       
       </div>
+     
     </>
   );
 }

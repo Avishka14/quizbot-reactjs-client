@@ -1,6 +1,7 @@
 import React from "react";
 import './HomeStyle.css';
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 function HomePage() {
   return (
@@ -144,6 +145,9 @@ function HomePage() {
           </div>
         </section>
       </main>
+      
+      <Footer/>
+
     </div>
       
     </>

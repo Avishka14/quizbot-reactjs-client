@@ -37,8 +37,10 @@ function LandingPage() {
         <Link to="/home">
           <button>Get Started 🚀</button>
         </Link>
-
-        <button>About App 🌿</button>
+       
+        <Link to="/about">
+         <button>About App 🌿</button>
+        </Link>
       </div>
 
       <div className="section-four-land">

@@ -1,6 +1,7 @@
 import React from "react";
 import "./BlogStyle.css";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 function Blog() {
   return (
@@ -281,6 +282,8 @@ function Blog() {
             </form>
           </div>
         </section>
+        
+        <Footer/>
       </div>
     </>
   );

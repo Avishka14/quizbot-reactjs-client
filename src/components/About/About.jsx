@@ -10,6 +10,7 @@ import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import GroupIcon from '@mui/icons-material/Group';
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 
 function About() {
@@ -77,6 +78,7 @@ function About() {
         </div>
       </div>
     </section>
+    <Footer/>
     </div>
   );
 }
