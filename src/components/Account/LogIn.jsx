@@ -1,7 +1,31 @@
 import React, { useState } from "react";
-import './AccountStyle.css';
+import "./AccountStyle.css";
+import { loginUser } from "../../services/authServices";
+import { Link } from "react-router-dom";
+
+
 function LogIn() {
+  
   const [isSignup, setIsSignup] = useState(true);
+
+  const[email, setEmail] = useState("");
+  const[password, setPassword] = useState("");
+
+  const handleLogin = async (e) =>{
+    e.preventDefault();
+
+     try {
+      const res = await loginUser(email , password);
+      if(res.status === 200){
+       alert("Login Successful");
+      } 
+
+     }catch (error){
+        console.error("log Fail" , error);
+      }
+
+  };
+
 
   return (
     <div>
@@ -19,7 +43,7 @@ function LogIn() {
               {isSignup ? "Create Your Account" : "Welcome Back!"}
             </h2>
 
-            <form className="account-form">
+            <form className="account-form" onSubmit={handleLogin}>
               {isSignup && (
                 <input
                   type="text"
@@ -28,26 +52,26 @@ function LogIn() {
                   required
                 />
               )}
+
               <input
                 type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
                 className="account-input"
                 required
               />
-              <input
-                type="text"
-                placeholder="Username"
-                className="account-input"
-                required
-              />
+          
               <input
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 className="account-input"
                 required
               />
               <button className="account-button">
-                {isSignup ? "Sign Up" : "Log In"}
+                {isSignup ? "Create Account" : "Log In"}
               </button>
             </form>
 
