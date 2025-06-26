@@ -1,107 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
+.logIn-wrapper * {
   box-sizing: border-box;
+  padding: 0;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
-body {
-  font-family: 'Lexend Deca', sans-serif;
-  background: #f4f6fa;
-  color: #333;
-  line-height: 1.5;
-  padding: 0 1rem;
-}
-
-.account-section {
-  min-height: 100vh;
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, #eef2f7, #dbe9f4);
+.logIn-wrapper {
+  background-color: #f5f7fa;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
-.account-container {
-  width: 100%;
+.logIn-container {
   max-width: 420px;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 24px;
 }
+
+.logIn-header-title h2 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.logIn-header-title p {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+}
+
 
 .account-privacy-banner {
   background: #d1ecf1;
   color: #0c5460;
   padding: 0.75rem 1rem;
-  margin-bottom: 1.5rem;
+  margin: 1rem 0 1.5rem;
   border-radius: 0.5rem;
   text-align: center;
   font-size: 0.9rem;
 }
 
-.account-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  text-align: center;
+
+.logIn-input-card {
+  margin-top: 20px;
 }
 
-.account-title {
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
+.logIn-input-title p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-align: center;
   color: #222;
 }
+
 
 .account-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 15px;
 }
 
 .account-input {
-  padding: 0.75rem 1rem;
-  font-size: 0.95rem;
+  width: 100%;
+  padding: 12px 14px;
   border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  transition: border 0.2s;
-  outline: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
 .account-input:focus {
-  border-color: #007acc;
+  border-color: #007bff;
+  outline: none;
 }
 
-.account-button {
-  padding: 0.75rem 1rem;
-  background-color: #007acc;
-  color: white;
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.LogIn-btn-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.logIn-btn{
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
   font-size: 1rem;
-  border: none;
-  border-radius: 0.5rem;
   cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s ease;
+  transition: background-color 0.3s;
 }
 
-.account-button:hover {
-  background-color: #005b99;
+.logIn-btn {
+  background-color: #007bff;
+  color: white;
 }
 
-.account-toggle-text {
-  margin-top: 1rem;
-  font-size: 0.9rem;
+.logIn-btn:hover {
+  background-color: #0056b3;
 }
 
-.account-toggle-btn {
-  background: none;
-  border: none;
-  color: #007acc;
-  cursor: pointer;
-  font-weight: 600;
-  margin-left: 0.25rem;
-  padding: 0;
+.link-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #e0e0e0;
+  color: #000000;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.account-toggle-btn:hover {
-  text-decoration: underline;
+.link-button:hover {
+  background-color: #cfcfcf;
+  color: #000;
 }
+
+.logIn-hr{
+  margin: 20px;
+}
+

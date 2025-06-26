@@ -1,12 +1,22 @@
 import API from "./api";
 
 /**
- * Sends login credentials to the backend
- * 
- * @param {string} email - The user's email address
- * @param {string} password - The user's password
- * @returns {Promise} Axios response promise
+ * @param {string} email -
+ * @param {string} password
+ * @returns {Promise}
  */
- export const loginUser = async (email , password) =>{
-    return await API.post("/users/login" , {email , password});
- };
+
+export const loginUser = async (email, password) => {
+  return await API.post("/users/login", { email, password });
+};
+
+/**
+ *
+ * @param{Object} userData
+ * @returns {Promise}
+ *
+ */
+
+export const createUser = async (userData) => {
+  return await API.post("/users/createuser", userData);
+};

@@ -1,10 +1,18 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
 
 .header-container {
   width: 100%;
   padding: 1rem 2rem;
-  background: #fff;
+  background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,22 +20,20 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-
 }
+
 
 .header-logo h2 {
   font-size: 1.8rem;
   font-weight: 800;
   color: #3a0ca3;
   letter-spacing: 1px;
-  margin-right: 2rem;
 }
+
 
 .nav-link {
   display: flex;
   gap: 1.5rem;
-  flex: 1;
-  justify-content: flex-start;
   align-items: center;
 }
 
@@ -36,9 +42,9 @@
   color: #333;
   font-weight: 600;
   font-size: 1rem;
-  transition: color 0.3s, transform 0.2s;
   position: relative;
   padding-bottom: 4px;
+  transition: color 0.3s, transform 0.2s;
 }
 
 .nav-link a::after {
@@ -61,35 +67,25 @@
   width: 100%;
 }
 
-.side-button  button{
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-}
 
 .side-button {
   display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-
 @media (max-width: 768px) {
-
-  .header-logo h2 {
-    margin-bottom: 0.5rem;
-  }
-
   .nav-link {
     display: none;
   }
-   
-  .side-button{
-    display: flex;
-    cursor: pointer;
+
+  .side-button {
+    display: block;
   }
 
-  .nav-link a {
-    font-size: 1rem;
-    padding: 0.25rem 0;
+  .header-logo h2 {
+    font-size: 1.5rem;
   }
 }
 
@@ -97,37 +93,34 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 220px;
+  width: 240px;
   height: 100vh;
   background-color: #111827;
   color: #fff;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 1rem;
+  padding: 2rem 1.5rem;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-
-  animation: slideInLeft 0.5s ease-out forwards;
+  z-index: 1100;
+  animation: slideInLeft 0.4s ease-out forwards;
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-40px);
 }
-
 
 .header-logo-side {
-  margin-bottom: 3rem;
-  animation: fadeIn 0.8s ease-out forwards;
+  margin-bottom: 2.5rem;
   opacity: 0;
-  animation-delay: 0.3s;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 0.2s;
 }
-
 
 .nav-link-side {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  animation: fadeIn 0.8s ease-out forwards;
   opacity: 0;
-  animation-delay: 0.5s;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 0.4s;
 }
 
 .nav-link-side a {
@@ -143,7 +136,7 @@
 .nav-link-side a:hover {
   background-color: #1e293b;
   color: #60a5fa;
-  transform: translateX(5px);
+  transform: translateX(6px);
 }
 
 @keyframes slideInLeft {
