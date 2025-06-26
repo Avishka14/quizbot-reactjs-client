@@ -81,6 +81,17 @@
   transition: border-color 0.3s;
 }
 
+.account-input-log {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  margin: 5px;
+}
+
+
 .account-input:focus {
   border-color: #007bff;
   outline: none;

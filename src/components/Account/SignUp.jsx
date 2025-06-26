@@ -2,10 +2,48 @@ import React, { useState } from "react";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import "./AccountStyle.css";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {createUser} from "../../services/authServices";
 
 function SignUp() {
   const [savePassword, setSavePassword] = useState(true);
+  const randomID = Math.floor(1000 + Math.random() * 9000);
+
+  const navigate = useNavigate();
+
+  const [form , setForm] = useState({
+    id:randomID,
+    name:"",
+    email:"",
+    password:""
+  });
+  
+ const handleChange = (e) => {
+    setForm((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await createUser(form);
+      if (response.status === 200) {
+        alert("Account created successfully! You will be redirected to your account page.");
+        setForm({
+          id: randomID,
+          name: "",
+          email: "",
+          password: ""
+        });
+        navigate("/account");
+      }
+    } catch (error) {
+      console.error("Error creating account:", error);
+      alert("Failed to create account. Please try again.");
+    }
+  }
 
   return (
     <div className="logIn-wrapper">
@@ -31,10 +69,12 @@ function SignUp() {
             <p>Create Your Account</p>
           </div>
 
-          <form className="account-form">
+          <form className="account-form" onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
+              value={form.name || ""}
+              onChange={handleChange}
               placeholder="Full Name"
               className="account-input"
               autoComplete="name"
@@ -44,6 +84,8 @@ function SignUp() {
             <input
               type="email"
               name="email"
+              value={form.email || ""}
+              onChange={handleChange}
               placeholder="Email Address"
               className="account-input"
               autoComplete="email"
@@ -53,9 +95,11 @@ function SignUp() {
             <input
               type="password"
               name="password"
+              value={form.password || ""}
+              onChange={handleChange}
               placeholder="Create a Strong Password"
               className="account-input"
-              autoComplete="new-password"
+              autoComplete="password"
               required
             />
 

@@ -1,11 +1,38 @@
-import { CheckBox } from "@mui/icons-material";
-import React from "react";
+import React, { useState } from "react";
 import "./AccountStyle.css";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../services/authServices";
 
 function LogIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await loginUser(email, password);
+      if (res.status === 200) {
+        alert(
+          "Account created successfully! You will be redirected to your account page."
+        );
+        navigate("/account");
+        
+      } else {
+        alert("Login failed. Please check your credentials.");
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert("Invalid email or password. Please try again.");
+    }
+
+    console.log("Email:", email);
+    console.log("Password:", password);
+  };
+
   return (
     <div className="logIn-wrapper">
       <div className="logIn-container">
@@ -27,12 +54,14 @@ function LogIn() {
             <p>Log In to Your Account</p>
           </div>
 
-          <form action="">
+          <form onSubmit={handleLogin}>
             <input
               type="text"
               name="email"
+              value={email || ""}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Your E-Mail"
-              className="account-input"
+              className="account-input-log"
               autoComplete="email"
               required
             />
@@ -40,27 +69,29 @@ function LogIn() {
             <input
               type="password"
               name="password"
+              value={password || ""}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Password!"
-              className="account-input"
+              className="account-input-log"
               autoComplete="current-password"
               required
             />
-          </form>
 
-          <div className="LogIn-btn-container">
-            <button className="logIn-btn">Log In</button>
-            <Link to={"/signup"} className="link-button">
-              Don't have an account? Sign Up
-            </Link>
+            <div className="LogIn-btn-container">
+              <button className="logIn-btn">Log In</button>
+              <Link to={"/signup"} className="link-button">
+                Don't have an account? Sign Up
+              </Link>
 
-            <div>
-              <FormControlLabel
-                control={<Checkbox defaultChecked />}
-                label="Save"
-              />
-              <a href="#">Forget Password ?</a>
+              <div>
+                <FormControlLabel
+                  control={<Checkbox defaultChecked />}
+                  label="Save"
+                />
+                <a href="#">Forget Password ?</a>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
 
         <div className="logIn-hr">
