@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AccountStyle.css";
+import "./LogIn.css";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import Footer from "../Footer/Footer";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,11 +16,8 @@ function LogIn() {
     try {
       const res = await loginUser(email, password);
       if (res.status === 200) {
-        alert(
-          "Account created successfully! You will be redirected to your account page."
-        );
         navigate("/account");
-        
+
       } else {
         alert("Login failed. Please check your credentials.");
       }
