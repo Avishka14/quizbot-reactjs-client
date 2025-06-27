@@ -31,13 +31,13 @@ function SignUp() {
       const response = await createUser(form);
       if (response.status === 200) {
         alert("Account created successfully! You will be redirected to your account page.");
+        navigate("/account" , {state: {response}});
         setForm({
           id: randomID,
           name: "",
           email: "",
           password: ""
         });
-        navigate("/account");
       }
     } catch (error) {
       console.error("Error creating account:", error);

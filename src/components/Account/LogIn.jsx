@@ -8,7 +8,7 @@ import { loginUser } from "../../services/authServices";
 function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -16,8 +16,11 @@ function LogIn() {
     try {
       const res = await loginUser(email, password);
       if (res.status === 200) {
-        navigate("/account");
-
+        const response = res.data;
+        
+        console.log(response);
+        navigate("/account" , {state: {response }});
+        
       } else {
         alert("Login failed. Please check your credentials.");
       }
@@ -25,9 +28,6 @@ function LogIn() {
       console.error("Login failed:", error);
       alert("Invalid email or password. Please try again.");
     }
-
-    console.log("Email:", email);
-    console.log("Password:", password);
   };
 
   return (
