@@ -5,6 +5,8 @@ import Footer from "../Footer/Footer";
 import "./AccountStyle.css";
 import LoginRequire from "../Pages/LoginRequire";
 import Cookies from "js-cookie";
+import LoadingPage from "../Pages/LoadingPage";
+import ArticleForm from "./ArticleForm/ArticleForm";
 
 const articles = [
   {
@@ -45,7 +47,7 @@ function Account() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p>Loading account...</p>;
+  if (loading) return <LoadingPage/>;
 
   if (!user) return <LoginRequire />;
 
@@ -63,43 +65,10 @@ function Account() {
           </div>
         </section>
 
-        <section className="article-form-section">
-          <div className="container form-card">
-            <h2 className="section-title">Share Your Knowledge</h2>
-            <form className="article-form">
-              <input
-                type="text"
-                placeholder="Article Title"
-                className="form-input"
-              />
-              <select className="form-input">
-                <option value="">Select Category</option>
-                <option value="ai">AI & Education</option>
-                <option value="development">Development</option>
-                <option value="ml">Machine Learning</option>
-                <option value="ux">UX Design</option>
-                <option value="data">Data Science</option>
-              </select>
-              <textarea
-                placeholder="Write your article content..."
-                className="form-textarea"
-              ></textarea>
-              <input
-                type="text"
-                placeholder="Featured Image URL (optional)"
-                className="form-input"
-              />
-              <div className="form-actions">
-                <button type="submit" className="btn btn-primary">
-                  Publish Article
-                </button>
-                <button type="button" className="btn btn-secondary">
-                  Save Draft
-                </button>
-              </div>
-            </form>
-          </div>
-        </section>
+
+           <ArticleForm/>
+
+        
 
         <section className="articles-section">
           <div className="container">
