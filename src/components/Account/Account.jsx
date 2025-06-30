@@ -7,29 +7,14 @@ import LoginRequire from "../Pages/LoginRequire";
 import Cookies from "js-cookie";
 import LoadingPage from "../Pages/LoadingPage";
 import ArticleForm from "./ArticleForm/ArticleForm";
-
-const articles = [
-  {
-    id: 1,
-    title: "React Basics for Beginners",
-    image: "https://source.unsplash.com/400x200/?reactjs,code",
-    isDraft: false,
-  },
-  {
-    id: 2,
-    title: "Draft: Learning CSS Grid",
-    image: "https://source.unsplash.com/400x200/?css,grid",
-    isDraft: true,
-  },
-];
+import ArticleCard from "./Articles/ArticleCard";
 
 function Account() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-   
-    const userId = Cookies.get("userid");  //  npm install js-cookie
+    const userId = Cookies.get("userid"); //  npm install js-cookie
 
     if (!userId) {
       setUser(null);
@@ -38,7 +23,7 @@ function Account() {
     }
 
     axios
-      .get(`http://localhost:8080/api/v1/users/getusers/${userId}`) 
+      .get(`http://localhost:8080/api/v1/users/getusers/${userId}`)
       .then((res) => setUser(res.data))
       .catch((err) => {
         console.error("Error fetching user by ID", err);
@@ -47,9 +32,18 @@ function Account() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <LoadingPage/>;
+  if (loading) return <LoadingPage />;
 
   if (!user) return <LoginRequire />;
+
+ const data = {
+    id : "1",
+    thumbnail : "https://via.placeholder.com/150",
+    title : "React Description Example",
+    category : "Web Dev",
+    description :
+      "Lorem ipsum dolor sit amet,m dm dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quisolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris...",
+    };
 
   return (
     <>
@@ -65,46 +59,17 @@ function Account() {
           </div>
         </section>
 
-
-           <ArticleForm/>
-
-        
+        <ArticleForm />
 
         <section className="articles-section">
           <div className="container">
             <h4 className="section-subtitle">Your Articles</h4>
-            <div className="articles-grid">
-              {articles.map(({ id, title, image, isDraft }) => (
-                <div
-                  key={id}
-                  className={`article-card ${isDraft ? "draft" : ""}`}
-                >
-                  <img
-                    src={image}
-                    alt={title}
-                    className="article-image"
-                    loading="lazy"
-                  />
-                  <div className="article-content">
-                    <h5 className="article-title">{title}</h5>
-                    <div className="crud-actions">
-                      <button className="crud-btn view" title="View">
-                        <i className="fas fa-eye">View</i>
-                      </button>
-                      <button className="crud-btn edit" title="Edit">
-                        <i className="fas fa-edit">Edit</i>
-                      </button>
-                      <button className="crud-btn delete" title="Delete">
-                        <i className="fas fa-trash-alt">Delete</i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+
+            <ArticleCard data={data} />
           </div>
         </section>
       </main>
+
       <Footer />
     </>
   );
