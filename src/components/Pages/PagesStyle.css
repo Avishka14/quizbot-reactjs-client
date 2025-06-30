@@ -47,3 +47,54 @@
   background-color: #2e0899;
 }
 
+.LoadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  z-index: 9999;
+}
+
+.LoadingSpinner {
+  margin-bottom: 20px;
+  width: 70px;
+  text-align: center;
+}
+
+.LoadingBounce1,
+.LoadingBounce2,
+.LoadingBounce3 {
+  width: 18px;
+  height: 18px;
+  background-color: #3a0ca3;
+  border-radius: 100%;
+  display: inline-block;
+  animation: LoadingBounce 1.4s infinite ease-in-out both;
+}
+
+.LoadingBounce1 {
+  animation-delay: -0.32s;
+}
+.LoadingBounce2 {
+  animation-delay: -0.16s;
+}
+.LoadingBounce3 {
+  animation-delay: 0s;
+}
+
+@keyframes LoadingBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  } 
+  40% {
+    transform: scale(1);
+  }
+}
+
+.LoadingText {
+  font-size: 1.2rem;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
