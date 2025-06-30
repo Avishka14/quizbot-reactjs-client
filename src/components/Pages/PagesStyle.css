@@ -98,3 +98,98 @@
   color: #333;
   font-family: Arial, sans-serif;
 }
+
+.not-found-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.not-found-container h1{
+  font-size: 3rem;
+  color: #3a0ca3;
+}
+
+.not-found-container p{
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.not-found-btn{
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #3a0ca3;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.read-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.read-page-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.read-page-header {
+  text-align: center;
+}
+
+.read-page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3a0ca3;
+  margin-bottom: 0.5rem;
+}
+
+.read-page-category {
+  font-size: 1rem;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.read-page-thumbnail-wrapper {
+  text-align: center;
+}
+
+.read-page-thumbnail {
+  max-width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.read-page-content {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+.read-page-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #666;
+}
+
+.read-btn{
+  text-align: center;
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: #ddb4ff 0px 0px 10px;
+  color: #2e0899;
+  font-size: 20px;
+}
