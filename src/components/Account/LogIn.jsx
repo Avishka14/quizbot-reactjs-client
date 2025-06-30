@@ -85,7 +85,7 @@ function LogIn() {
                   control={<Checkbox defaultChecked />}
                   label="Save"
                 />
-                <a href="#">Forget Password ?</a>
+                <a href="#" className="forgetPas">Forget Password ?</a>
               </div>
             </div>
           </form>
