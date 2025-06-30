@@ -9,6 +9,7 @@ function LoginRequire() {
         <h2>You need to log in</h2>
         <p>To access this page, please log in to your account.</p>
         <Link to="/login" className="login-link">Go to Login</Link>
+        <Link to="/home" className="login-link-home">Go to Home</Link>
       </div>
     </div>
   )

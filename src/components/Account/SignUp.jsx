@@ -28,9 +28,9 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await createUser(form);
-      if (response.status === 200) {
-        alert("Account created successfully! You will be redirected to your account page.");
+      const res = await createUser(form);
+      if (res.status === 200) {
+        const response = res.data;
         navigate("/account" , {state: {response}});
         setForm({
           id: randomID,
