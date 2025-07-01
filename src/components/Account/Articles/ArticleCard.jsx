@@ -18,8 +18,8 @@ const ArticleCard = ({ data }) => {
   };
 
   return (
-    <div className="article-card">
-      <img src={data.thumbnail} alt="thumbnail" className="article-card-thumbnail" />
+    <div className="article-card"  >
+      <img src={`http://localhost:8080${data.coverImage}`} alt="thumbnail" className="article-card-thumbnail" />
       <h2 className="article-card-title">{data.title}</h2>
       <h3 className="article-card-category">{data.category}</h3>
       <p className="article-card-description">

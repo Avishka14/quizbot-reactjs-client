@@ -22,18 +22,18 @@ const ReadPage = () => {
       <Header />
       <div className="read-page">
         <article className="read-page-article">
-          <header className="read-page-header">
-            <h1 className="read-page-title">{data.title}</h1>
-            <p className="read-page-category">{data.category}</p>
-          </header>
-
           <div className="read-page-thumbnail-wrapper">
             <img
-              src={data.thumbnail}
+              src={`http://localhost:8080${data.coverImage}`}
               alt="Article thumbnail"
               className="read-page-thumbnail"
             />
           </div>
+
+          <header className="read-page-header">
+            <h1 className="read-page-title">{data.title}</h1>
+            <p className="read-page-category">{data.category}</p>
+          </header>
 
           <section className="read-page-content">
             <p className="read-page-description">{data.description}</p>
