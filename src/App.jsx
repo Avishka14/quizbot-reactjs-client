@@ -9,6 +9,7 @@ import LogIn from "./components/Account/LogIn";
 import SignUp from "./components/Account/SignUp";
 import Account from "./components/Account/Account";
 import ArticleRead from "./components/Pages/ArticleRead";
+import EditArticle from "./components/Pages/EditArticle";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
         <Route path="/account" element={<Account/>} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp/>} />
-         <Route path="/read/:id" element={<ArticleRead/>} />
+        <Route path="/read/:id" element={<ArticleRead/>} />
+        <Route path="/editarticle/:id" element={<EditArticle/>} />
       </Routes>
     </>
   );

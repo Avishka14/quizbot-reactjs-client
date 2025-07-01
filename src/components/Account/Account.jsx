@@ -8,6 +8,8 @@ import Cookies from "js-cookie";
 import LoadingPage from "../Pages/LoadingPage";
 import ArticleForm from "./ArticleForm/ArticleForm";
 import ArticleCard from "./Articles/ArticleCard";
+import { Link } from "react-router-dom";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
 function Account() {
   const [user, setUser] = useState(null);
@@ -91,7 +93,11 @@ function Account() {
             ) : (
               <div className="articles-grid">
                 {data.map((article) => (
-                  <ArticleCard data={article} key={article.id} />
+                  <ArticleCard data={article} key={article.id}>
+                    <Link to={`/editarticle/${article.id}`} state={{ article }}>
+                      <SettingsOutlinedIcon />
+                    </Link>
+                  </ArticleCard>
                 ))}
               </div>
             )}
