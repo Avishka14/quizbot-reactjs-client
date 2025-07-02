@@ -26,8 +26,8 @@ function About() {
           <div className="blog-card blog-personal-info">
             <h3 className="blog-subtitle"><CodeIcon /> Developer Info</h3>
             <p><strong>Name:</strong> Avishka Chamod</p>
-            <p><EmailIcon fontSize="small" /> <a href="mailto:your@email.com">your@email.com</a></p>
-            <p><LinkedInIcon fontSize="small" /> <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">LinkedIn</a></p>
+            <p><EmailIcon fontSize="small" /> <a href="mailto:avishkachamod14@gmail.com">avishkachamod14@gmail.com</a></p>
+            <p><LinkedInIcon fontSize="small" /> <a href="https://www.linkedin.com/in/avishka-chamod-hemachandra-04641227b/" target="_blank" rel="noreferrer">LinkedIn</a></p>
             <p><GitHubIcon fontSize="small" /> <a href="https://github.com/Avishka14" target="_blank" rel="noreferrer">GitHub</a></p>
           </div>
 
@@ -45,7 +45,7 @@ function About() {
           <div className="blog-card blog-description">
             <h3 className="blog-subtitle"><IntegrationInstructionsIcon /> How QuizBot Works</h3>
             <p>
-              QuizBot leverages the <strong>DeepSeek API</strong> to generate intelligent quizzes. Users can register, write blog articles, and attempt AI-generated tests tailored to their interests and skills.
+              QuizBot leverages the <strong>DeepSeek</strong> to generate intelligent quizzes. Users can register, write blog articles, and attempt AI-generated tests tailored to their interests and skills.
             </p>
           </div>
 

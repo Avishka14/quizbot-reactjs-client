@@ -85,11 +85,11 @@ function EditArticle() {
                 onChange={(e) => setCategory(e.target.value)}
               >
                 <option value="">Select Category</option>
-                <option value="ai">AI & Education</option>
-                <option value="development">Development</option>
-                <option value="ml">Machine Learning</option>
-                <option value="ux">UX Design</option>
-                <option value="data">Data Science</option>
+                <option value="Education">Education</option>
+                <option value="Development">Development</option>
+                <option value="Technology">Technology</option>
+                <option value="Health">Health</option>
+                <option value="Science">Science</option>
               </select>
               <textarea
                 placeholder="Write your article content..."
