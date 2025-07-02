@@ -7,8 +7,8 @@ const ArticleForm = () => {
   const [category, setCategory] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
- 
-    const userId = Cookies.get("userid");
+
+  const userId = Cookies.get("userid");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,19 +24,19 @@ const ArticleForm = () => {
     formData.append("userId", userId);
 
     try {
-       await axios.post("http://localhost:8080/api/v1/blog/upload", formData, {
+      await axios.post("http://localhost:8080/api/v1/blog/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
-      alert("Congradulations Your Article has been published successfully!");
-
+      alert(
+        "Congradulations Your Article has been published successfully! Please Refresh Your Broswer !"
+      );
       setTitle("");
       setCategory("");
       setContent("");
       setImage(null);
-
     } catch (error) {
       console.error("Upload failed", error);
       alert("Failed to upload article.");
@@ -61,11 +61,11 @@ const ArticleForm = () => {
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="">Select Category</option>
-            <option value="ai">AI & Education</option>
-            <option value="development">Development</option>
-            <option value="ml">Machine Learning</option>
-            <option value="ux">UX Design</option>
-            <option value="data">Data Science</option>
+            <option value="Education">Education</option>
+            <option value="Development">Development</option>
+            <option value="Technology">Technology</option>
+            <option value="Health">Health</option>
+            <option value="Science">Science</option>
           </select>
           <textarea
             placeholder="Write your article content..."
@@ -73,7 +73,6 @@ const ArticleForm = () => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
           ></textarea>
-
 
           <input
             type="file"
