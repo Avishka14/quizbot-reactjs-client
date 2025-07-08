@@ -20,3 +20,14 @@ export const loginUser = async (email, password) => {
 export const createUser = async (userData) => {
   return await API.post("/users/createuser", userData);
 };
+
+
+
+/**
+ * @param {string} topic
+ * @param {string} userid
+ * @returns {Promise}
+ */
+export const getQuiz = async (topic, userid) => {
+  return await API.post("/quiz/getquiz", { topic, userid });
+};
