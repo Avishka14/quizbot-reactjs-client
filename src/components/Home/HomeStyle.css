@@ -170,7 +170,17 @@
   color: #d62828;
 }
 
-/* Responsive tweaks */
+.des-wrap{
+  margin-top: 20px;
+}
+
+.generate-btn-clear-btn{
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem;
+ background-color: #333;
+}
+
 @media (max-width: 600px) {
   .quiz-home .header h1 {
     font-size: 2rem;
