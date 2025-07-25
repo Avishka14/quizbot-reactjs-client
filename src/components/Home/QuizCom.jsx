@@ -125,7 +125,9 @@ function QuizCom() {
         </form>
       </section>
 
-      <section className="quiz-display">
+      <section className="quiz-display"> 
+              <p className="intro-view-p">Enter the Topic and Generate it!</p>
+
         {loading && (
           <div className="loading-state">
             <div className="loading-spinner"></div>

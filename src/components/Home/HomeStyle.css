@@ -181,6 +181,12 @@
  background-color: #333;
 }
 
+.intro-view-p{
+  color: #8b8b8b;
+  font-weight: 700;
+  padding: 0.75rem;
+}
+
 @media (max-width: 600px) {
   .quiz-home .header h1 {
     font-size: 2rem;
