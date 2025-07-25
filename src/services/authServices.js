@@ -6,8 +6,8 @@ import API from "./api";
  * @returns {Promise}
  */
 
-export const loginUser = async (email, password) => {
-  return await API.post("/users/login", { email, password });
+export const loginUser = (email, password) => {
+  return  API.post("/users/login", { email, password });
 };
 
 /**
@@ -17,8 +17,8 @@ export const loginUser = async (email, password) => {
  *
  */
 
-export const createUser = async (userData) => {
-  return await API.post("/users/createuser", userData);
+export const createUser =  (userData) => {
+  return  API.post("/users/createuser", userData);
 };
 
 
@@ -28,6 +28,15 @@ export const createUser = async (userData) => {
  * @param {string} userid
  * @returns {Promise}
  */
-export const getQuiz = async (topic, userid) => {
-  return await API.post("/quiz/getquiz", { topic, userid });
+export const getQuiz =  (topic, userid) => {
+  return  API.post("/quiz/getquiz", { topic, userid });
+};
+
+/**
+ * @param {string} topic
+ * @param {string} userid
+ * @returns {Promise}
+ */
+export const getDescribe =  (topic, userId) => {
+  return  API.post("/describe/getdescribe", { topic, userId });
 };
