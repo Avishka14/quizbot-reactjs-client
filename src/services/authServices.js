@@ -40,3 +40,13 @@ export const getQuiz =  (topic, userid) => {
 export const getDescribe =  (topic, userId) => {
   return  API.post("/describe/getdescribe", { topic, userId });
 };
+
+/**
+ *
+ * @returns {Promise}
+ *
+ */
+
+export const getAllBlogs = () =>{
+      return API.get("/blog/getall");
+};
