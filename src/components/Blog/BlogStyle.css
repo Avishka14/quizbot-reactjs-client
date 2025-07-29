@@ -81,7 +81,6 @@
   color: #fff;
 }
 
-/* ----- Featured & Latest Articles ----- */
 .blog-page .blog-featured-grid,
 .blog-page .blog-articles-grid {
   display: grid;
@@ -97,10 +96,11 @@
   overflow: hidden;
 }
 
-.blog-page .blog-card-image {
+.blog-page .img-thumb {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 10px;
 }
 
 .blog-page .blog-card-content {
