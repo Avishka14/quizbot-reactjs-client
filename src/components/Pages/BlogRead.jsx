@@ -29,15 +29,17 @@ function BlogRead() {
           />
         </div>
 
-        <div className="blog-read-wrapper">
+        <div className="blog-read-wrapper" key={article.id}>
           <div className="blog-page-author">
-            <span className="author">Blake</span>
-            <span className="date">2997979</span>
+            <span className="author"></span>
+            <span className="date"></span>
           </div>
 
-          <h1 className="blog-title">{article.title}</h1>
+          <div className="container-blog-div">
+            <h1 className="blog-title">{article.title}</h1>
 
-          <p className="blog-description">{article.description}</p>
+            <p className="blog-description">{article.description}</p>
+          </div>
 
           <div className="blog-action-buttons">
             <button className="thumb-btn-blog">👍 Thumbs Up</button>
