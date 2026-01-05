@@ -7,7 +7,7 @@ function History() {
     <>
       <Header />
 
-      <div className="history-page">
+      <div className="history-page" style={{display:"none"}}>
         <header className="history-header">
           <div className="history-header-content">
             <h1 className="history-title">Quiz History Dashboard</h1>
@@ -20,31 +20,17 @@ function History() {
           </div>
         </header>
 
-        {/* Navigation Tabs */}
+
         <nav className="history-navigation">
           <button className="history-nav-btn history-nav-active">
             Statistics
           </button>
-          <button className="history-nav-btn">Question History</button>
-          <button className="history-nav-btn">Performance</button>
-          <button className="history-nav-btn">Topics</button>
+
         </nav>
 
         {/* Statistics Section */}
         <section className="history-statistics-section">
           <div className="history-stats-grid">
-            <div className="history-stats-card history-rating-card">
-              <div className="history-card-header">
-                <h3 className="history-card-title">Account Rating</h3>
-                <div className="history-rating-badge">A+</div>
-              </div>
-              <div className="history-rating-progress">
-                <div className="history-progress-bar">
-                  <div className="history-progress-fill w-85"></div>
-                </div>
-                <span className="history-progress-text">85% to S Rank</span>
-              </div>
-            </div>
 
             <div className="history-stats-card">
               <div className="history-card-icon">📅</div>
@@ -92,142 +78,14 @@ function History() {
             </div>
           </div>
 
-          <div className="history-performance-chart">
-            <h3 className="history-section-title">Weekly Performance</h3>
-            <div className="history-chart-placeholder">
-              <div className="history-chart-bars">
-                {[60, 80, 45, 90, 70, 55, 85].map((height, idx) => (
-                  <div
-                    className="history-bar"
-                    style={{ height: `${height}%` }}
-                    key={idx}
-                  >
-                    <span className="history-bar-label">
-                      {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][idx]}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+ 
         </section>
 
-        <footer className="history-footer">
-          <div className="history-footer-content">
-            <div className="history-footer-stats">
-              <span>Total Time Spent: 156 hours</span>
-              <span>Questions per Day: 12.5 avg</span>
-              <span>Favorite Topic: Mathematics</span>
-            </div>
-
-
-            <div className="history-questions-list">
-
-              <div className="history-question-item">
-                <div className="history-question-header">
-                  <div className="history-question-meta">
-                    <span className="history-question-topic">Mathematics</span>
-                    <span className="history-question-date">2024-06-18</span>
-                    <span className="history-question-time">14:30</span>
-                  </div>
-                  <div className="history-question-result history-correct">
-                    ✓ Correct
-                  </div>
-                </div>
-                <div className="history-question-content">
-                  <h4 className="history-question-text">
-                    What is the square root of 144?
-                  </h4>
-                  <div className="history-answer-options">
-                    <div className="history-option history-selected history-correct-option">
-                      <span className="history-option-label">A</span>
-                      <span className="history-option-text">12</span>
-                      <span className="history-option-status">
-                        Your Answer ✓
-                      </span>
-                    </div>
-                    <div className="history-option">
-                      <span className="history-option-label">B</span>
-                      <span className="history-option-text">10</span>
-                    </div>
-                    <div className="history-option">
-                      <span className="history-option-label">C</span>
-                      <span className="history-option-text">14</span>
-                    </div>
-                    <div className="history-option">
-                      <span className="history-option-label">D</span>
-                      <span className="history-option-text">16</span>
-                    </div>
-                  </div>
-                  <div className="history-question-explanation">
-                    <strong>Explanation:</strong> The square root of 144 is 12
-                    because 12 × 12 = 144.
-                  </div>
-                </div>
-              </div>
-
-
-              <div className="history-question-item">
-                <div className="history-question-header">
-                  <div className="history-question-meta">
-                    <span className="history-question-topic">Science</span>
-                    <span className="history-question-date">2024-06-18</span>
-                    <span className="history-question-time">14:25</span>
-                  </div>
-                  <div className="history-question-result history-incorrect">
-                    ✗ Incorrect
-                  </div>
-                </div>
-                <div className="history-question-content">
-                  <h4 className="history-question-text">
-                    What is the chemical symbol for gold?
-                  </h4>
-                  <div className="history-answer-options">
-                    <div className="history-option history-correct-option">
-                      <span className="history-option-label">A</span>
-                      <span className="history-option-text">Au</span>
-                      <span className="history-option-status">
-                        Correct Answer ✓
-                      </span>
-                    </div>
-                    <div className="history-option">
-                      <span className="history-option-label">B</span>
-                      <span className="history-option-text">Ag</span>
-                    </div>
-                    <div className="history-option history-selected history-incorrect-option">
-                      <span className="history-option-label">C</span>
-                      <span className="history-option-text">Go</span>
-                      <span className="history-option-status">
-                        Your Answer ✗
-                      </span>
-                    </div>
-                    <div className="history-option">
-                      <span className="history-option-label">D</span>
-                      <span className="history-option-text">Gd</span>
-                    </div>
-                  </div>
-                  <div className="history-question-explanation">
-                    <strong>Explanation:</strong> The chemical symbol for gold
-                    is Au, derived from the Latin word "aurum".
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="history-btn-primary">
-              <button className="history-button">
-                Start New Quiz
-              </button>
-              <button className="history-button">
-                Export Data
-              </button>
-            </div>
-          </div>
-        </footer>
         
-         <Footer/>       
+            
       </div>
      
+       <Footer/>  
     </>
   );
 }
