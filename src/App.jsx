@@ -11,6 +11,7 @@ import Account from "./components/Account/Account";
 import ArticleRead from "./components/Pages/ArticleRead";
 import EditArticle from "./components/Pages/EditArticle";
 import BlogRead from "./components/Pages/BlogRead";
+import AdminPanel from "./components/Pages/AdminPanel";
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/read/:id" element={<ArticleRead/>} />
         <Route path="/editarticle/:id" element={<EditArticle/>} />
-         <Route path="/readblog/:id" element={<BlogRead/>} />
+        <Route path="/readblog/:id" element={<BlogRead/>} />
+        <Route path="/admin" element={<AdminPanel/>} />
       </Routes>
     </>
   );
