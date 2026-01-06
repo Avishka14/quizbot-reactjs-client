@@ -15,7 +15,8 @@ function SignUp() {
     id:randomID,
     name:"",
     email:"",
-    password:""
+    password:"",
+    role:"USER"
   });
   
  const handleChange = (e) => {
