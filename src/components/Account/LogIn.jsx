@@ -8,7 +8,7 @@ import { loginUser } from "../../services/authServices";
 function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -17,10 +17,13 @@ function LogIn() {
       const res = await loginUser(email, password);
       if (res.status === 200) {
         const response = res.data;
-        
-        console.log(response);
-        navigate("/account" , {state: {response }});
-        
+
+        if (response.role === "ADMIN") {
+          navigate("/admin", { state: { response } });
+        } else {
+          console.log(response);
+          navigate("/account", { state: { response } });
+        }
       } else {
         alert("Login failed. Please check your credentials.");
       }
@@ -85,7 +88,9 @@ function LogIn() {
                   control={<Checkbox defaultChecked />}
                   label="Save"
                 />
-                <a href="#" className="forgetPas">Forget Password ?</a>
+                <a href="#" className="forgetPas">
+                  Forget Password ?
+                </a>
               </div>
             </div>
           </form>
