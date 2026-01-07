@@ -42,7 +42,7 @@ function Account() {
     fetchUser();
   }, [userId]);
 
-  // Fetch user articles
+
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -54,7 +54,7 @@ function Account() {
       } catch (err) {
         console.error("Error fetching articles:", err);
         if (err.response && err.response.status === 404) {
-          setData([]); // treat it like no blogs
+          setData([]); 
         }
       }
     };

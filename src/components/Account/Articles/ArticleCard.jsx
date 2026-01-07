@@ -14,6 +14,8 @@ const ArticleCard = ({ data, children }) => {
     return words.length > 40 ? words.slice(0, 40).join(" ") + "..." : text;
   };
 
+  const description = data?.description || "";
+
   return (
     <div className="article-card">
       <div className="extra-content">{children}</div>
@@ -23,11 +25,21 @@ const ArticleCard = ({ data, children }) => {
         alt="thumbnail"
         className="article-card-thumbnail"
       />
+      <span
+        className={`approval-badge ${
+          data.approval ? "approved" : "not-approved"
+        }`}
+      >
+        {data.approval ? "Approved" : "Not Approved"}
+      </span>
+
       <h2 className="article-card-title">{data.title}</h2>
       <h3 className="article-card-category">{data.category}</h3>
+
       <p className="article-card-description">
-        {getPreview(data.description)}
-        {data.description.split(" ").length > 40 && (
+        {getPreview(description)}
+
+        {description.split(" ").length > 40 && (
           <span className="read-more" onClick={handleReadMore}>
             {" "}
             Read more

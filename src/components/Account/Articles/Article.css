@@ -47,9 +47,11 @@
   color: #444;
   line-height: 1.4;
   user-select: text;
+  overflow: hidden;
+  word-break: break-word;
 }
 
-/* Read more link */
+
 .read-more {
   font-weight: 600;
   color: #3a0ca3;
@@ -63,3 +65,22 @@
   color: #2d0794;
   text-decoration: underline;
 }
+
+.approval-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.approval-badge.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.approval-badge.not-approved {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
