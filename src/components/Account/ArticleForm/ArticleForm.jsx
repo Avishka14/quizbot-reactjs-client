@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../../../services/api";
 import Cookies from "js-cookie";
 
 const ArticleForm = () => {
@@ -24,22 +24,26 @@ const ArticleForm = () => {
     formData.append("userId", userId);
 
     try {
-      await axios.post("http://localhost:8080/api/v1/blog/upload", formData, {
+      const response = await API.post("/blog/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
-      alert(
-        "Congradulations Your Article has been published successfully! Please Refresh Your Broswer !"
-      );
+      alert("Article Updated Successfully");
+
       setTitle("");
       setCategory("");
       setContent("");
       setImage(null);
     } catch (error) {
       console.error("Upload failed", error);
-      alert("Failed to upload article.");
+
+      if (error.response && error.response.data) {
+        alert("Failed to upload article: " + error.response.data.message);
+      } else {
+        alert("Failed to upload article: " + error.message);
+      }
     }
   };
 
