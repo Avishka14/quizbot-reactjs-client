@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Cookies from "js-cookie";
-import axios from "axios";
+import API from "../../services/api";
 
 function EditArticle() {
   const location = useLocation();
@@ -44,16 +44,19 @@ function EditArticle() {
     formData.append("userid", userId);
 
     try {
-      const response = await axios.post(
-        `http://localhost:8080/api/v1/blog/updateblog/${articleId}`,
+      const response = await API.post(
+        `/blog/updateblog/${articleId}`,
         formData
       );
-      console.log("Update successful", response.data);
       alert("Article updated successfully!");
       navigate("/account");
     } catch (error) {
       console.log("Update failed", error);
-      alert("Updating failed");
+      if (error.response && error.response.data) {
+        alert("Failed to upload article: " + error.response.data.message);
+      } else {
+        alert("Failed to upload article: " + error.message);
+      }
     }
   };
 
