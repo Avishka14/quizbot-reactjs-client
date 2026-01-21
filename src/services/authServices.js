@@ -7,7 +7,7 @@ import API from "./api";
  */
 
 export const loginUser = (email, password) => {
-  return  API.post("/users/login", { email, password });
+  return API.post("/users/login", { email, password });
 };
 
 /**
@@ -17,19 +17,8 @@ export const loginUser = (email, password) => {
  *
  */
 
-export const createUser =  (userData) => {
-  return  API.post("/users/createuser", userData);
-};
-
-
-
-/**
- * @param {string} topic
- * @param {string} userid
- * @returns {Promise}
- */
-export const getQuiz =  (topic, userid) => {
-  return  API.post("/quiz/getquiz", { topic, userid });
+export const createUser = (userData) => {
+  return API.post("/users/createuser", userData);
 };
 
 /**
@@ -37,8 +26,17 @@ export const getQuiz =  (topic, userid) => {
  * @param {string} userid
  * @returns {Promise}
  */
-export const getDescribe =  (topic, userId) => {
-  return  API.post("/describe/getdescribe", { topic, userId });
+export const getQuiz = (topic, userid) => {
+  return API.post("/quiz/getquiz", { topic, userid });
+};
+
+/**
+ * @param {string} topic
+ * @param {string} userid
+ * @returns {Promise}
+ */
+export const getDescribe = (topic, userId) => {
+  return API.post("/describe/getdescribe", { topic, userId });
 };
 
 /**
@@ -47,6 +45,18 @@ export const getDescribe =  (topic, userId) => {
  *
  */
 
-export const getAllBlogs = () =>{
-      return API.get("/blog/getall");
+export const getAllBlogs = () => {
+  return API.get("/blog/getall");
+};
+
+export const getUserByToken = () => {
+  return API.get("/users/getbytoken", {
+    withCredentials: true
+  });
+};
+
+export const getblogsbyTOken = () => {
+  return API.get("/blog/getuserblogs", {
+    withCredentials: true
+  });
 };
