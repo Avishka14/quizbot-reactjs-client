@@ -44,7 +44,7 @@ function EditArticle() {
     formData.append("userid", userId);
 
     try {
-      const response = await API.post(
+      const response = await API.put(
         `/blog/updateblog/${articleId}`,
         formData
       );
