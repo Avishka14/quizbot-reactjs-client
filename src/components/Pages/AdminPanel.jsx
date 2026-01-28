@@ -1,10 +1,35 @@
-import React , { useState } from "react";
+import React , { useEffect, useState } from "react";
 import "./PagesStyle.css";
+import LoadingPage from "./LoadingPage";
+import LoginRequire from "./LoginRequire";
+import * as authServices from "../../services/authServices";
 
 function AdminPanel() {
   const [section, setSection] = useState("users");
   const [users, setUsers] = useState([{ id: 1, name: "Admin", email: "admin@mail.com" }]);
   const [blogs, setBlogs] = useState([{ id: 1, title: "First Blog", status: "pending" }]);
+  const [admin, setAdmin] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+   useEffect(() => {
+     const loadAdminData = async () => {
+    try {
+      const userRes = await authServices.getUserByToken();
+      setAdmin(userRes.data);
+    } catch (err) {
+      console.error("Auth error:", err);
+      setAdmin(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  loadAdminData();
+}, []);
+
+   if (loading) return <LoadingPage />;
+   if (!admin) return <LoginRequire />;
+
 
   return (
     <main className="admin-panel">
