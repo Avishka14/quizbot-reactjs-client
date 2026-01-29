@@ -1,4 +1,4 @@
-import React , { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./PagesStyle.css";
 import LoadingPage from "./LoadingPage";
 import LoginRequire from "./LoginRequire";
@@ -6,37 +6,53 @@ import * as authServices from "../../services/authServices";
 
 function AdminPanel() {
   const [section, setSection] = useState("users");
-  const [users, setUsers] = useState([{ id: 1, name: "Admin", email: "admin@mail.com" }]);
-  const [blogs, setBlogs] = useState([{ id: 1, title: "First Blog", status: "pending" }]);
+  const [users, setUsers] = useState([
+    { id: 1, name: "Admin", email: "admin@mail.com" },
+  ]);
+  const [blogs, setBlogs] = useState([
+    { id: 1, title: "First Blog", status: "pending" },
+  ]);
   const [admin, setAdmin] = useState(null);
   const [loading, setLoading] = useState(true);
 
-   useEffect(() => {
-     const loadAdminData = async () => {
-    try {
-      const userRes = await authServices.getUserByToken();
-      setAdmin(userRes.data);
-    } catch (err) {
-      console.error("Auth error:", err);
-      setAdmin(null);
-    } finally {
-      setLoading(false);
-    }
-  };
+  useEffect(() => {
+    const loadAdminData = async () => {
+      try {
+        const userRes = await authServices.getUserByToken();
+        setAdmin(userRes.data);
 
-  loadAdminData();
-}, []);
+        const blogRes = await authServices.getNotApprovedBlogs();
+        setBlogs(blogRes.data);
+      } catch (err) {
+        console.error("Auth error:", err);
+        setAdmin(null);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-   if (loading) return <LoadingPage />;
-   if (!admin) return <LoginRequire />;
+    loadAdminData();
+  }, []);
 
+  if (loading) return <LoadingPage />;
+  if (!admin) return <LoginRequire />;
 
   return (
     <main className="admin-panel">
       <aside className="admin-panel-sidebar">
         <h2 className="admin-panel-logo">QuizBot Admin Panel</h2>
-        <button onClick={() => setSection("users")} className={section === "users" ? "active" : ""}>Users</button>
-        <button onClick={() => setSection("blogs")} className={section === "blogs" ? "active" : ""}>Blogs</button>
+        <button
+          onClick={() => setSection("users")}
+          className={section === "users" ? "active" : ""}
+        >
+          Users
+        </button>
+        <button
+          onClick={() => setSection("blogs")}
+          className={section === "blogs" ? "active" : ""}
+        >
+          Blogs
+        </button>
       </aside>
 
       <section className="admin-panel-content">
@@ -44,14 +60,22 @@ function AdminPanel() {
           <div className="admin-panel-card">
             <h3>User Management</h3>
 
-
             <ul className="admin-panel-list">
-              {users.map(u => (
+              {users.map((u) => (
                 <li key={u.id} className="admin-panel-list-item">
-                  <span>{u.name} • {u.email}</span>
+                  <span>
+                    {u.name} • {u.email}
+                  </span>
                   <div>
-                    <button >Edit</button>
-                    <button className="danger" onClick={() => setUsers(users.filter(x => x.id !== u.id))}>Delete</button>
+                    <button>Edit</button>
+                    <button
+                      className="danger"
+                      onClick={() =>
+                        setUsers(users.filter((x) => x.id !== u.id))
+                      }
+                    >
+                      Delete
+                    </button>
                   </div>
                 </li>
               ))}
@@ -61,15 +85,47 @@ function AdminPanel() {
 
         {section === "blogs" && (
           <div className="admin-panel-card">
-            <h3>Blog Moderation</h3>
+            <h3>Blog Approval</h3>
 
             <ul className="admin-panel-list">
-              {blogs.map(b => (
+              {blogs.map((b) => (
                 <li key={b.id} className="admin-panel-list-item">
-                  <span>{b.title} • {b.status}</span>
+                   <p>{b.id}</p>
+                  <img
+                    src={`http://localhost:8080${b.coverImage}`}
+                    alt="Article thumbnail"
+                    className="approval-thumbnail"
+                  />
+                  <p>Category :{b.category}</p>
+                  <p>{b.title}</p>
                   <div>
-                    <button onClick={() => setBlogs(blogs.map(x => x.id === b.id ? { ...x, status: "approved" } : x))}>Approve</button>
-                    <button className="danger" onClick={() => setBlogs(blogs.map(x => x.id === b.id ? { ...x, status: "declined" } : x))}>Decline</button>
+
+                    <button>
+                      Read
+                    </button>
+                    <button
+                      onClick={() =>
+                        setBlogs(
+                          blogs.map((x) =>
+                            x.id === b.id ? { ...x, status: "approved" } : x,
+                          ),
+                        )
+                      }
+                    >
+                      Approve
+                    </button>
+                    <button
+                      className="danger"
+                      onClick={() =>
+                        setBlogs(
+                          blogs.map((x) =>
+                            x.id === b.id ? { ...x, status: "declined" } : x,
+                          ),
+                        )
+                      }
+                    >
+                      Decline
+                    </button>
                   </div>
                 </li>
               ))}
@@ -81,4 +137,4 @@ function AdminPanel() {
   );
 }
 
-export default AdminPanel
+export default AdminPanel;
