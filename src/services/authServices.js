@@ -60,3 +60,9 @@ export const getblogsbyTOken = () => {
     withCredentials: true
   });
 };
+
+export const getNotApprovedBlogs = () => {
+  return API.get("/blog/getnotapproved", {
+    withCredentials: true
+  });
+};
