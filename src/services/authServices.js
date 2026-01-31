@@ -66,3 +66,23 @@ export const getNotApprovedBlogs = () => {
     withCredentials: true
   });
 };
+
+export const approveBlog = (blogId) => {
+  return API.put(`/blog/approveblog/${blogId}`, {}, {
+    withCredentials: true
+  });
+}
+
+/**
+ * Upload/Create a new blog
+ * @param {FormData} formData - Blog data with image
+ * @returns {Promise}
+ */
+export const uploadBlog = (formData) => {
+  return API.post("/blog/upload", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    withCredentials: true
+  });
+};
