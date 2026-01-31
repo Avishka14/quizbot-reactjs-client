@@ -6,17 +6,16 @@ import "./Admin.css";
 
 function AdminPanel() {
   const [section, setSection] = useState("users");
-  const [users, setUsers] = useState([
-    { id: 1, name: "Admin", email: "admin@mail.com" },
-  ]);
-  const [blogs, setBlogs] = useState([
-    { id: 1, title: "First Blog", status: "pending" },
-  ]);
+  const [users, setUsers] = useState([]);
+  const [blogs, setBlogs] = useState([]);
   const [admin, setAdmin] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadAdminData = async () => {
+    loadAdminData();
+  }, []);
+
+      const loadAdminData = async () => {
       try {
         const userRes = await authServices.getUserByToken();
         setAdmin(userRes.data);
@@ -31,11 +30,30 @@ function AdminPanel() {
       }
     };
 
-    loadAdminData();
-  }, []);
-
   if (loading) return <LoadingPage />;
   if (!admin) return <LoginRequire />;
+
+
+const handleBlogApprove = async (blogId) => {
+  try {
+    const response = await authServices.approveBlog(blogId);
+    
+    if(response.status === 200) {
+
+    setBlogs(
+      blogs.map((x) =>
+        x.id === blogId ? { ...x, status: "approved" } : x
+      )
+    );
+    alert("Blog approved successfully!");
+    loadAdminData();
+
+  }
+
+  } catch (error) {
+    console.log("Error approving blog:", error);
+  }
+};
 
   return (
     <main className="admin-panel">
@@ -103,15 +121,7 @@ function AdminPanel() {
                     <button>
                       Read
                     </button>
-                    <button
-                      onClick={() =>
-                        setBlogs(
-                          blogs.map((x) =>
-                            x.id === b.id ? { ...x, status: "approved" } : x,
-                          ),
-                        )
-                      }
-                    >
+                       <button onClick={() => handleBlogApprove(b.id)}>
                       Approve
                     </button>
                     <button
