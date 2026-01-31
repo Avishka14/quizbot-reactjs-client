@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./PagesStyle.css";
-import LoadingPage from "./LoadingPage";
-import LoginRequire from "./LoginRequire";
-import * as authServices from "../../services/authServices";
+import LoadingPage from "../LoadingPage";
+import LoginRequire from "../LoginRequire";
+import * as authServices from "../../../services/authServices";
+import "./Admin.css";
 
 function AdminPanel() {
   const [section, setSection] = useState("users");

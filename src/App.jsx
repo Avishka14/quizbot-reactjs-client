@@ -11,7 +11,7 @@ import Account from "./components/Account/Account";
 import ArticleRead from "./components/Pages/ArticleRead";
 import EditArticle from "./components/Pages/EditArticle";
 import BlogRead from "./components/Pages/BlogRead";
-import AdminPanel from "./components/Pages/AdminPanel";
+import AdminPanel from "./components/Pages/Admin/AdminPanel";
 
 function App() {
   return (
