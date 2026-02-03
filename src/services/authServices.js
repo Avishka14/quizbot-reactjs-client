@@ -55,23 +55,8 @@ export const getUserByToken = () => {
   });
 };
 
-export const getblogsbyTOken = () => {
-  return API.get("/blog/getuserblogs", {
-    withCredentials: true
-  });
-};
 
-export const getNotApprovedBlogs = () => {
-  return API.get("/blog/getnotapproved", {
-    withCredentials: true
-  });
-};
 
-export const approveBlog = (blogId) => {
-  return API.put(`/blog/approveblog/${blogId}`, {}, {
-    withCredentials: true
-  });
-}
 
 /**
  * Upload/Create a new blog
@@ -86,3 +71,27 @@ export const uploadBlog = (formData) => {
     withCredentials: true
   });
 };
+
+export const getblogsbyTOken = () => {
+  return API.get("/blog/getuserblogs", {
+    withCredentials: true
+  });
+};
+
+export const getNotApprovedBlogs = () => {
+  return API.get("/blog/getnotapproved", {
+    withCredentials: true
+  });
+};
+
+export const approveBlog = (blogId) => {
+  return API.put(`/blog/approve/${blogId}`, {}, {
+    withCredentials: true
+  });
+}
+
+export const declineBlog = (blogId) => {
+  return API.put(`/blog/decline/${blogId}`, {}, {
+    withCredentials: true
+  });
+}

@@ -55,6 +55,28 @@ const handleBlogApprove = async (blogId) => {
   }
 };
 
+
+const handleBlogDecline = async (blogId) => {
+  try {
+    const response = await authServices.declineBlog(blogId);
+    
+    if(response.status === 200) {
+
+    setBlogs(
+      blogs.map((x) =>
+        x.id === blogId ? { ...x, status: "declined" } : x
+      )
+    );
+    alert("Blog Declined successfully!");
+    loadAdminData();
+
+  }
+
+  } catch (error) {
+    console.log("Error declining blog:", error);
+  }
+};
+
   return (
     <main className="admin-panel">
       <aside className="admin-panel-sidebar">
@@ -114,26 +136,21 @@ const handleBlogApprove = async (blogId) => {
                     alt="Article thumbnail"
                     className="approval-thumbnail"
                   />
-                  <p>Category :{b.category}</p>
-                  <p>{b.title}</p>
+                  <p>{b.category}</p>
+                  <p>
+                   {b.title.length > 15 ? b.title.slice(0, 15) + "..." : b.title}
+                  </p>
                   <div>
 
                     <button>
                       Read
                     </button>
-                       <button onClick={() => handleBlogApprove(b.id)}>
+                    
+                    <button className="success" onClick={() => handleBlogApprove(b.id)}>
                       Approve
                     </button>
-                    <button
-                      className="danger"
-                      onClick={() =>
-                        setBlogs(
-                          blogs.map((x) =>
-                            x.id === b.id ? { ...x, status: "declined" } : x,
-                          ),
-                        )
-                      }
-                    >
+                   
+                    <button className = "danger" onClick={() => handleBlogDecline(b.id)} >
                       Decline
                     </button>
                   </div>
