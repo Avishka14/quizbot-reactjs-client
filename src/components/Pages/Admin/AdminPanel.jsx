@@ -3,6 +3,7 @@ import LoadingPage from "../LoadingPage";
 import LoginRequire from "../LoginRequire";
 import * as authServices from "../../../services/authServices";
 import "./Admin.css";
+import BlogViewCard from "./AdminBlogComponents/BlogViewCard";
 
 function AdminPanel() {
   const [section, setSection] = useState("users");
@@ -10,6 +11,7 @@ function AdminPanel() {
   const [blogs, setBlogs] = useState([]);
   const [admin, setAdmin] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedBlog, setSelectedBlog] = useState(null);
 
   useEffect(() => {
     loadAdminData();
@@ -142,9 +144,7 @@ const handleBlogDecline = async (blogId) => {
                   </p>
                   <div>
 
-                    <button>
-                      Read
-                    </button>
+                    <button onClick={() => setSelectedBlog(b)}>Read</button>
                     
                     <button className="success" onClick={() => handleBlogApprove(b.id)}>
                       Approve
@@ -160,6 +160,9 @@ const handleBlogDecline = async (blogId) => {
           </div>
         )}
       </section>
+
+       <BlogViewCard blog={selectedBlog} onClose={() => setSelectedBlog(null)}/>
+
     </main>
   );
 }
