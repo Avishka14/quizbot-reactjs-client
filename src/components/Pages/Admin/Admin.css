@@ -159,7 +159,12 @@
 
 .admin-panel-list-item button.danger {
   background: #fee2e2;
-  color: #991b1b;
+  color: #ff0000;
+}
+
+.admin-panel-list-item button.success {
+  background: #adffc1;
+  color: #058d17;
 }
 
 .admin-panel-list-item button.danger:hover {

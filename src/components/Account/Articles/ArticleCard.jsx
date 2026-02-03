@@ -25,15 +25,17 @@ const ArticleCard = ({ data, children }) => {
         alt="thumbnail"
         className="article-card-thumbnail"
       />
-      <span
-        className={`approval-badge ${
-          data.approval ? "approved" : "not-approved"
-        }`}
-      >
-        {data.approval ? "Approved" : "Not Approved"}
+
+       <span
+          className={`approval-badge ${data.approvalStatus.toLowerCase()}`}
+       >
+         {data.approvalStatus === "APPROVED" && "Approved"}
+         {data.approvalStatus === "PENDING" && "Pending Approval"}
+         {data.approvalStatus === "DECLINED" && "Declined"}
       </span>
 
-      <h2 className="article-card-title">{data.title}</h2>
+
+      <h2 className="article-card-title">{data.title.length > 15 ? data.title.slice(0, 15) + "..." : data.title}</h2>
       <h3 className="article-card-category">{data.category}</h3>
 
       <p className="article-card-description">
