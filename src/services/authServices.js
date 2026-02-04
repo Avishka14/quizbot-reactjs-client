@@ -23,11 +23,14 @@ export const createUser = (userData) => {
 
 /**
  * @param {string} topic
- * @param {string} userid
  * @returns {Promise}
  */
-export const getQuiz = (topic, userid) => {
-  return API.post("/quiz/getquiz", { topic, userid });
+export const getQuiz = (topic , difficulty , questionCount) => {
+  return API.post("/quiz/getquiz", { 
+    topic ,
+    difficulty,
+    questionCount
+ });
 };
 
 /**
