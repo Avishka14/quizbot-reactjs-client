@@ -4,10 +4,9 @@ import { getQuiz } from "../../services/authServices";
 import Cookies from "js-cookie";
 
 function QuizCom() {
-  const userId = Cookies.get("userid");
   const [topic, setTopic] = useState("");
   const [difficulty, setDifficulty] = useState("beginner");
-  const [questionCount, setQuestionCount] = useState(5); // NEW
+  const [questionCount, setQuestionCount] = useState(5); 
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
@@ -29,7 +28,7 @@ function QuizCom() {
     setSelectedAnswers([]);
 
     try {
-      const res = await getQuiz(topic, userId, difficulty, questionCount); // PASS questionCount
+      const res = await getQuiz(topic, difficulty, questionCount); 
       setQuestions(res.data);
     } catch (err) {
       console.error("Failed to fetch quiz:", err);
@@ -132,6 +131,7 @@ function QuizCom() {
           <div className="loading-state">
             <div className="loading-spinner"></div>
             <h3>Generating Your Quiz...</h3>
+            <h3>This can take some time...</h3>
           </div>
         )}
 
