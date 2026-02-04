@@ -14,6 +14,7 @@ function QuizCom() {
   const [loading, setLoading] = useState(false);
   const [finished, setFinished] = useState(false);
   const [waiting, setWaiting] = useState(false);
+  const [error , setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,10 +29,29 @@ function QuizCom() {
     setSelectedAnswers([]);
 
     try {
-      const res = await getQuiz(topic, difficulty, questionCount); 
-      setQuestions(res.data);
+       const res = await getQuiz(topic, difficulty, questionCount);
+       setQuestions(res.data);
+       setError(null);
+
+
     } catch (err) {
-      console.error("Failed to fetch quiz:", err);
+    console.error("Failed to fetch quiz:", err);
+
+    if (err.response) {
+
+      if (err.response.status === 429) {
+        setError("Too many requests. Please wait a moment and try again.");
+      } else if (err.response.status === 500) {
+        setError("Server error: Unable to generate quiz. Please try again later.");
+      } else {
+        setError(`Error: ${err.response.status} - ${err.response.data?.message || 'Unknown error'}`);
+      }
+    } else if (err.request) {
+      setError("No response from server. Please check your network.");
+    } else {
+      setError("An unexpected error occurred.");
+    }
+  
     } finally {
       setLoading(false);
       setWaiting(false);
@@ -127,19 +147,25 @@ function QuizCom() {
       <section className="quiz-display"> 
               <p className="intro-view-p">Enter the Topic and Generate it!</p>
 
-        {loading && (
-          <div className="loading-state">
-            <div className="loading-spinner"></div>
-            <h3>Generating Your Quiz...</h3>
-            <h3>This can take some time...</h3>
-          </div>
+       {error && (
+       <div className="error-message">
+        <h3>{error}</h3>
+        </div>
         )}
 
-        {waiting && !loading && (
+        {loading && (
+         <div className="loading-state">
+         <div className="loading-spinner"></div>
+         <h3>Generating Your Quiz...</h3>
+         <h3>This can take some time...</h3>
+         </div>
+        )}
+
+       {waiting && !loading && (
           <div className="empty-state">
-            <i className="fas fa-lightbulb"></i>
-            <h3>Waiting for Questions</h3>
-          </div>
+          <i className="fas fa-lightbulb"></i>
+          <h3>Waiting for Questions</h3>
+         </div>
         )}
 
         {!loading && questions.length > 0 && !finished && (
