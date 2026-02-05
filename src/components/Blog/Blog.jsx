@@ -81,7 +81,7 @@ function Blog() {
                         <span className="blog-category blog-category-dev">
                           {article.category}
                         </span>
-                        <h3 className="blog-card-title">{article.title}</h3>
+                        <h3 className="blog-card-title"> {article.title.length > 25 ? article.title.slice(0, 25) + "..." : article.title}</h3>
                         <p className="blog-card-excerpt">
                            {getPreview(article.description)}
                           {article.description.split(" ").length > 40 && (
@@ -89,16 +89,12 @@ function Blog() {
                           )}
                         </p>
                         <div className="blog-card-meta">
-                          <span className="blog-author">Sarah Chen</span>
-                          <span className="blog-date">Jun 17, 2025</span>
-                          <span className="blog-read-time">8 min read</span>
+                          <span className="blog-author">{article.userName}</span>
+                          <span className="blog-date">{article.createdDate}</span>
                         </div>
                         <div className="blog-card-actions">
                           <button className="blog-btn blog-btn-like">
-                            ❤️ 38
-                          </button>
-                          <button className="blog-btn blog-btn-comment">
-                            💬 8
+                            ❤️
                           </button>
                           <button className="blog-btn blog-btn-share">
                             🔗
