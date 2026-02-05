@@ -98,3 +98,16 @@ export const declineBlog = (blogId) => {
     withCredentials: true
   });
 }
+
+
+/**
+ * Submit answer for a quiz question
+ * @param {string} quizId 
+ * @param {string} userAnswer 
+ * @returns {Promise}
+ */
+export const submitQuizAnswer = (quizId, userAnswer) => {
+  return API.post(`/quiz/submit/${quizId}`, { userAnswer }, {
+    withCredentials: true
+  });
+};
