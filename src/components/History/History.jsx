@@ -7,7 +7,7 @@ function History() {
     <>
       <Header />
 
-      <div className="history-page" style={{display:"none"}}>
+      <div className="history-page" >
         <header className="history-header">
           <div className="history-header-content">
             <h1 className="history-title">Quiz History Dashboard</h1>
@@ -19,16 +19,6 @@ function History() {
             </div>
           </div>
         </header>
-
-
-        <nav className="history-navigation">
-          <button className="history-nav-btn history-nav-active">
-            Statistics
-          </button>
-
-        </nav>
-
-        {/* Statistics Section */}
         <section className="history-statistics-section">
           <div className="history-stats-grid">
 

@@ -11,27 +11,29 @@ function LogIn() {
 
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await loginUser(email, password);
-      if (res.status === 200) {
-        const response = res.data;
+const handleLogin = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await loginUser(email, password);
+    if (res.status === 200) {
+      const response = res.data;
 
-        if (response.role === "ADMIN") {
-          navigate("/admin", { state: { response } });
-        } else {
-          console.log(response);
-          navigate("/account", { state: { response } });
-        }
+      const roles = response.roles.map(r => r.name);
+
+      if (roles.includes("ROLE_ADMIN")) {
+        navigate("/admin", { state: { response } });
       } else {
-        alert("Login failed. Please check your credentials.");
+        navigate("/account", { state: { response } });
       }
-    } catch (error) {
-      console.error("Login failed:", error);
-      alert("Invalid email or password. Please try again.");
+    } else {
+      alert("Login failed. Please check your credentials.");
     }
-  };
+  } catch (error) {
+    console.error("Login failed:", error);
+    alert("Invalid email or password. Please try again.");
+  }
+};
+
 
   return (
     <div className="logIn-wrapper">

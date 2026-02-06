@@ -7,16 +7,13 @@ import {createUser} from "../../services/authServices";
 
 function SignUp() {
   const [savePassword, setSavePassword] = useState(true);
-  const randomID = Math.floor(1000 + Math.random() * 9000);
 
   const navigate = useNavigate();
 
   const [form , setForm] = useState({
-    id:randomID,
     name:"",
     email:"",
     password:"",
-    role:"USER"
   });
   
  const handleChange = (e) => {
@@ -32,9 +29,16 @@ function SignUp() {
       const res = await createUser(form);
       if (res.status === 200) {
         const response = res.data;
-        navigate("/account" , {state: {response}});
+  
+      const roles = response.roles.map(r => r.name);
+
+      if (roles.includes("ROLE_ADMIN")) {
+        navigate("/admin", { state: { response } });
+      } else {
+        navigate("/account", { state: { response } });
+      }
+      
         setForm({
-          id: randomID,
           name: "",
           email: "",
           password: ""
