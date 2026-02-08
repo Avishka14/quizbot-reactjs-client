@@ -60,7 +60,6 @@ export const getUserByToken = () => {
 
 
 
-
 /**
  * Upload/Create a new blog
  * @param {FormData} formData - Blog data with image
@@ -111,3 +110,10 @@ export const submitQuizAnswer = (quizId, userAnswer) => {
     withCredentials: true
   });
 };
+
+
+export const getQuizHistory = () =>{
+  return API.get("/users/getquestions", {
+    withCredentials: true
+  });
+}
