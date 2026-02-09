@@ -3,13 +3,18 @@ import Header from "../Header/Header";
 import "./HistoryStyle.css";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
-import { getQuizHistory } from "../../services/authServices";
+import { getQuizHistory, getUserStats } from "../../services/authServices";
 
 function History() {
   const [historyData, setHistoryData] = useState([]);
+  const [statsData, setStatsData] = useState({});
 
   useEffect(() => {
-    const fetchHistory = async () => {
+    fetchHistory();
+    fetchStats();
+  }, []);
+
+      const fetchHistory = async () => {
       try {
         const res = await getQuizHistory();
         setHistoryData(res.data);
@@ -19,8 +24,15 @@ function History() {
       }
     };
 
-    fetchHistory();
-  }, []);
+       const fetchStats = async () => {
+      try {
+        const res = await getUserStats();
+        setStatsData(res.data);
+        console.log("stats data:", res.data);
+      } catch (error) {
+        console.error("Failed to load quiz history", error);
+      }
+    };
 
   return (
     <>
@@ -32,8 +44,7 @@ function History() {
             <h1 className="history-title">Quiz History Dashboard</h1>
             <div className="history-user-info">
               <div className="history-user-details">
-                <span className="history-username">John Doe</span>
-                <span className="history-user-level">Level 15</span>
+                <span className="history-username">{statsData.name}</span>
               </div>
             </div>
           </div>
@@ -44,7 +55,7 @@ function History() {
               <div className="history-card-icon">📅</div>
               <div className="history-card-content">
                 <h3 className="history-card-title">Days Registered</h3>
-                <div className="history-stat-number">247</div>
+                <div className="history-stat-number">{statsData.daysLogged}</div>
                 <div className="history-stat-label">days active</div>
               </div>
             </div>
@@ -53,7 +64,7 @@ function History() {
               <div className="history-card-icon">❓</div>
               <div className="history-card-content">
                 <h3 className="history-card-title">Questions Answered</h3>
-                <div className="history-stat-number">1,234</div>
+                <div className="history-stat-number">{statsData.questionsCovered}</div>
                 <div className="history-stat-label">total questions</div>
               </div>
             </div>
@@ -62,7 +73,7 @@ function History() {
               <div className="history-card-icon">📚</div>
               <div className="history-card-content">
                 <h3 className="history-card-title">Topics Covered</h3>
-                <div className="history-stat-number">42</div>
+                <div className="history-stat-number">{statsData.topicsCovered}</div>
                 <div className="history-stat-label">different topics</div>
               </div>
             </div>
