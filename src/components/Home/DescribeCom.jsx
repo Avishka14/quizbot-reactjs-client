@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { getDescribe } from "../../services/authServices"; 
-import Cookies from "js-cookie";
+
 
 function DescribeCom() {
   const [topic, setTopic] = useState("");
@@ -8,7 +8,6 @@ function DescribeCom() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-    const userId = Cookies.get("userid");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,7 +16,7 @@ function DescribeCom() {
     setDescription("");
 
     try {
-      const response = await getDescribe(topic, userId);
+      const response = await getDescribe(topic);
       setDescription(response.data[0]?.description || "No description available.");
     } catch (error) {
       console.error("API call error:", error);
@@ -34,7 +33,6 @@ function DescribeCom() {
     setLoading(false);
   };
 
-  // Show intro text only if no description, no error, and not loading
   const showIntroText = !description && !error && !loading;
 
   return (

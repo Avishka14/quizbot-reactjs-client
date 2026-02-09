@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import './HomeStyle.css';
 import { getQuiz, submitQuizAnswer } from "../../services/authServices";
-import { useEffect } from "react";
 import * as authServices from "../../services/authServices";
-import LoginRequire from "../Pages/LoginRequire";
+
 
 function QuizCom() {
   const [topic, setTopic] = useState("");
@@ -19,27 +18,7 @@ function QuizCom() {
   const [finished, setFinished] = useState(false);
   const [waiting, setWaiting] = useState(false);
   const [error, setError] = useState(null);
-  const [user, setUser] = useState(null);
 
-    useEffect(() => {
-      loadAdminData();
-    }, []);
-  
-    const loadAdminData = async () => {
-      try {
-          const userRes = await authServices.getUserByToken();
-          setUser(userRes.data);
-  
-        } catch (err) {
-          console.error("Auth error:", err);
-          setUser(null);
-        } finally {
-          setLoading(false);
-        }
-      };
-  
-
-  if (!user) return <LoginRequire />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

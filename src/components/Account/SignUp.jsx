@@ -35,7 +35,7 @@ function SignUp() {
       if (roles.includes("ROLE_ADMIN")) {
         navigate("/admin", { state: { response } });
       } else {
-        navigate("/account", { state: { response } });
+        navigate("/home", { state: { response } });
       }
       
         setForm({
