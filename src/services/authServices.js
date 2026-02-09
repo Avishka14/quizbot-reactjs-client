@@ -38,8 +38,8 @@ export const getQuiz = (topic , difficulty , questionCount) => {
  * @param {string} userid
  * @returns {Promise}
  */
-export const getDescribe = (topic, userId) => {
-  return API.post("/describe/getdescribe", { topic, userId });
+export const getDescribe = (topic) => {
+  return API.post("/describe/getdescribe", { topic});
 };
 
 /**

@@ -23,7 +23,7 @@ const handleLogin = async (e) => {
       if (roles.includes("ROLE_ADMIN")) {
         navigate("/admin", { state: { response } });
       } else {
-        navigate("/account", { state: { response } });
+        navigate("/home", { state: { response } });
       }
     } else {
       alert("Login failed. Please check your credentials.");
