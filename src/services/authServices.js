@@ -117,3 +117,9 @@ export const getQuizHistory = () =>{
     withCredentials: true
   });
 }
+
+export const getUserStats = () =>{
+  return API.get("/users/getstats", {
+    withCredentials: true
+  });
+}
