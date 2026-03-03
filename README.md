@@ -149,17 +149,21 @@ API endpoints are  RESTful, e.g., `/users/login`, `/quiz/getquiz`, `/describe/to
    npm install
    ```
 
-2. **Start the development server:**
+3. **Start the development server:**
    ```sh
    npm run dev
    ```
 
-2. **Open the app in your browser:**
+4. **Open the app in your browser:**
     ```sh
    http://localhost:5173
 
-
 ---
+
+
+## Pull the Docker Image
+   [Click Here TO Navigate Docker Hub](https://hub.docker.com/r/avishka14/quizbot-image)
+
 
 
 ## Future Features
@@ -173,7 +177,8 @@ API endpoints are  RESTful, e.g., `/users/login`, `/quiz/getquiz`, `/describe/to
 7. **User-Generated Quizzes** – Let users create and publish their own quizzes.  
 8. **Mobile & Accessibility** – Mobile app support, dark mode, and accessibility features.    
 
-## Spring Boot Back End Repo – https://github.com/Avishka14/quizbot-springboot-server
+## Spring Boot Back End Repo – 
+[Backend Repo ](https://github.com/Avishka14/quizbot-springboot-server)
 
 
 
